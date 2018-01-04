@@ -27,7 +27,7 @@ def intra_list_distance(x, **kwargs):
 
 def intra_list_similarity(x, **kwargs):
     """See `intra_list_distance`"""
-    return 1. - intra_list_similarity(x, **kwargs)
+    return 1. - intra_list_distance(x, **kwargs)
 
 
 def content_coverage():
