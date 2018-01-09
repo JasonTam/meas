@@ -1,5 +1,4 @@
-import numpy as np
-from sklearn.metrics.pairwise import pairwise_distances
+from scipy.spatial.distance import pdist
 
 
 def intra_list_distance(x, **kwargs):
@@ -19,9 +18,8 @@ def intra_list_distance(x, **kwargs):
         http://files.grouplens.org/papers/ziegler-www05.pdf
 
     """
-    dist_mat = pairwise_distances(x, **kwargs)
-    triu_inds = np.triu_indices_from(dist_mat, k=1)
-    avg_dist = dist_mat[triu_inds].mean()
+    # pdist already returns condensed matrix
+    avg_dist = pdist(x, **kwargs).mean()
     return avg_dist
 
 

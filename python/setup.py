@@ -8,7 +8,6 @@ setup(name='meas',
             'numpy',
             'scipy',
             'pandas',
-            'scikit-learn',
             'ml_metrics',
       ],
       tests_require=[

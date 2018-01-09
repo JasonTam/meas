@@ -1,4 +1,4 @@
-from sklearn.metrics.pairwise import pairwise_distances
+from scipy.spatial.distance import cdist
 
 
 def prob(rank, n):
@@ -59,12 +59,11 @@ def serendipity(rank_arr, truth_arr,
     return s.mean()
 
 
-def historical_similarity(x_cur, x_hist):
+def historical_similarity(x_cur, x_hist, **kwargs):
     """ Checks how similar the current set is to a historical set
     
     Returns:
 
     """
-    # Note: can also maybe just pdist(xcur.mean, x_hist.mean)
 
-    return pairwise_distances(x_cur, x_hist).mean()
+    return cdist(x_cur, x_hist, **kwargs).mean()
